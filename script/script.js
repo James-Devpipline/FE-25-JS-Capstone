@@ -50,6 +50,8 @@ Be on the lookout for further instructions regarding fetching your cohort peers
 -- HAVE FUN --
 */
 
+const data = [{}];
+
 fetch("https://devpipeline-mock-api.onrender.com")
   .then((results) => results.json())
   .then((jsonData) => jsonData.result)
