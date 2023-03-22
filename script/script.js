@@ -50,40 +50,36 @@ Be on the lookout for further instructions regarding fetching your cohort peers
 -- HAVE FUN --
 */
 
-let studentArray = [];
+let studentObj = {};
 
 fetch("MOCK_DATA.json")
   .then((results) => results.json())
-  // .then((data) => console.log(data[0].first_name))
   .then((data) => sortData(data))
   .catch((err) => console.error(err));
 
-class Student {
-  constructor(arrayOfStudentObjects, weight = 1) {
-    this.arrayOfStudentObjects = arrayOfStudentObjects;
-    this.weight = weight;
-  }
+function sortData(dataParameter) {
+  dataParameter.forEach((i) => {
+    let studentName = `${i.first_name} ${i.last_name[0].toUpperCase()}.`;
 
-  addWeight() {
-    return this.weight++;
-  }
-
-  removeWeight() {
-    return this.weight--;
-  }
-}
-
-function sortData(dataParem) {
-  console.log(dataParem);
-
-  dataParem.forEach((i) => {
-    let studentName = `${i.first_name} ${i.last_name}`;
-
-    const studentObj = new Student(studentName, 1);
-    studentArray.push(studentObj);
-    console.dir(studentObj);
+    studentObj[studentName] = 1;
   });
 
-  console.log(studentArray);
-  return studentArray;
+  function appendStudentData() {
+    Object.keys(studentObj).forEach((user) => {
+      const studentColoumnQuerySelect =
+        document.querySelector(".student-column");
+      const studentDiv = document.createElement("div");
+      const studentInfo = document.createTextNode(`${[user]} : ${[]}`);
+
+      studentDiv.appendChild(studentInfo);
+
+      studentColoumnQuerySelect.appendChild(studentDiv);
+    });
+  }
+  appendStudentData();
+  // return studentObj;
 }
+
+// console.log(`Here ${Object.keys(studentObj)}`);
+
+// can have weight decided by an array with names of the people, each number for each person represents how many times that person is in that array
