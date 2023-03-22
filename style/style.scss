@@ -1,0 +1,39 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+
+  .page-content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #151843;
+
+      .header {
+        border-bottom-color: #e7edf5;
+        padding: 2px;
+        p {
+          color: #e7edf5;
+        }
+      }
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #d6d3d5;
+
+      .header {
+      }
+    }
+  }
+}

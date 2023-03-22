@@ -50,46 +50,40 @@ Be on the lookout for further instructions regarding fetching your cohort peers
 -- HAVE FUN --
 */
 
+let studentArray = [];
+
 fetch("MOCK_DATA.json")
   .then((results) => results.json())
   // .then((data) => console.log(data[0].first_name))
   .then((data) => sortData(data))
   .catch((err) => console.error(err));
 
-
-
-class studentColumns {
-  constructor (studentName, weight = 1) {
-    this.studentName = studentName
-    this.weight = weight
+class Student {
+  constructor(arrayOfStudentObjects, weight = 1) {
+    this.arrayOfStudentObjects = arrayOfStudentObjects;
+    this.weight = weight;
   }
 
   addWeight() {
-    return this.weight ++
+    return this.weight++;
   }
 
   removeWeight() {
-    return this.weight --
+    return this.weight--;
   }
 }
-
 
 function sortData(dataParem) {
-  dataLength = dataParem.length
-  class Student extends studentColumns {
-    constructor(studentName = `${dataParem.first_name} ${dataParem.last_name}`)
-  }
-  dataParem.foreach(() => {
-    // const Student.studentName = 
-  })
-  
-}
-// const sortData = (array) => {
-//   for (student)
-// };
+  console.log(dataParem);
 
-// fetch("https://devpipeline-mock-api.onrender.com")
-//   .then((results) => results.json())
-//   .then((jsonData) => jsonData.result)
-//   .then((data) => console.log(data))
-//   .catch((err) => console.error(err));
+  dataParem.forEach((i) => {
+    let studentName = `${i.first_name} ${i.last_name}`;
+
+    const studentObj = new Student(studentName, 1);
+    studentArray.push(studentObj);
+    console.dir(studentObj);
+  });
+
+  console.log(studentArray);
+  return studentArray;
+}

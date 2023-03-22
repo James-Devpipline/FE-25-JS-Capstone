@@ -1,1 +1,37 @@
-/*# sourceMappingURL=style.css.map */
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+html .page-content,
+body .page-content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+html .page-content .sidebar,
+body .page-content .sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #151843;
+}
+html .page-content .sidebar .header,
+body .page-content .sidebar .header {
+  border-bottom-color: #e7edf5;
+  padding: 2px;
+}
+html .page-content .sidebar .header p,
+body .page-content .sidebar .header p {
+  color: #e7edf5;
+}
+html .page-content .main,
+body .page-content .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d6d3d5;
+}/*# sourceMappingURL=style.css.map */
