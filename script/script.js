@@ -51,34 +51,48 @@ Be on the lookout for further instructions regarding fetching your cohort peers
 */
 
 let studentObj = {};
+let studentWeight = [];
 
-fetch("MOCK_DATA.json")
-  .then((results) => results.json())
-  .then((data) => sortData(data))
-  .catch((err) => console.error(err));
+async function fetchData(location) {
+  await fetch(location)
+    .then((results) => results.json())
+    .then((data) => sortData(data))
+    .catch((err) => console.error(err));
+}
 
 function sortData(dataParameter) {
   dataParameter.forEach((i) => {
     let studentName = `${i.first_name} ${i.last_name[0].toUpperCase()}.`;
 
     studentObj[studentName] = 1;
+
+    studentWeight.push(studentName);
+    console.log(studentObj[studentName]);
   });
 
   function appendStudentData() {
+    console.log(studentWeight);
+    console.log(studentObj);
     Object.keys(studentObj).forEach((user) => {
       const studentColoumnQuerySelect =
         document.querySelector(".student-column");
       const studentDiv = document.createElement("div");
-      const studentInfo = document.createTextNode(`${[user]} : ${[]}`);
+      const studentInfo = document.createTextNode(
+        `${[user]} : ${studentObj[user]}`
+      );
 
       studentDiv.appendChild(studentInfo);
 
       studentColoumnQuerySelect.appendChild(studentDiv);
     });
   }
+
   appendStudentData();
+
   // return studentObj;
 }
+
+fetchData("MOCK_DATA.json");
 
 // console.log(`Here ${Object.keys(studentObj)}`);
 
