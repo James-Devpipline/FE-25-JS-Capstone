@@ -67,16 +67,14 @@ function sortData(dataParameter) {
     studentObj[studentName] = 1;
 
     studentWeight.push(studentName);
-    console.log(studentObj[studentName]);
   });
 
   function appendStudentData() {
-    console.log(studentWeight);
-    console.log(studentObj);
     Object.keys(studentObj).forEach((user) => {
       const studentColoumnQuerySelect =
         document.querySelector(".student-column");
       const studentDiv = document.createElement("div");
+      studentDiv.setAttribute("id", `${[user]}`);
       const studentInfo = document.createTextNode(
         `${[user]} : ${studentObj[user]}`
       );
