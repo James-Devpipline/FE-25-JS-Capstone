@@ -134,13 +134,3 @@ setTimeout(() => {
 // console.log(`Here ${Object.keys(studentObj)}`);
 
 // can have weight decided by an array with names of the people, each number for each person represents how many times that person is in that array
-
-// testArr = [2, 3, 1, 3, 1];
-
-// console.log(testArr.indexOf(1));
-// console.log(testArr);
-
-// testArr.splice(testArr.indexOf(1), 1);
-
-// console.log(testArr.indexOf(1));
-// console.log(testArr);
