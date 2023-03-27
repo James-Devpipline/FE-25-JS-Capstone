@@ -62,11 +62,11 @@ async function fetchData(location) {
 
 function sortData(dataParameter) {
   dataParameter.forEach((i) => {
-    let studentName = `${i.first_name} ${i.last_name[0].toUpperCase()}.`;
+    let studentName = `${i.first_name}_${i.last_name[0].toUpperCase()}.`;
 
-    studentObj[studentName] = 1;
+    studentObj[`${studentName}`] = 1;
 
-    studentWeight.push(studentName);
+    studentWeight.push(`${studentName}`);
   });
 
   function appendStudentData() {
@@ -92,6 +92,55 @@ function sortData(dataParameter) {
 
 fetchData("MOCK_DATA.json");
 
+function changeWeight(addWeight, student) {
+  if (addWeight === true) {
+    studentWeight.push(`${student}`);
+    studentObj[student]++;
+  } else {
+    if (studentObj[student] !== 0) {
+      studentObj[student]--;
+      studentWeight.splice(studentWeight.indexOf(student), 1);
+    }
+  }
+}
+
+console.log(studentWeight);
+console.log(studentObj);
+
+setTimeout(() => {
+  changeWeight(true, "Rosemaria_C.");
+  console.log(studentWeight);
+  console.log(studentObj);
+}, 2000);
+
+setTimeout(() => {
+  changeWeight(false, "Rosemaria_C.");
+  console.log(studentWeight);
+  console.log(studentObj);
+}, 3000);
+
+setTimeout(() => {
+  changeWeight(false, "Rosemaria_C.");
+  console.log(studentWeight);
+  console.log(studentObj);
+}, 4000);
+
+setTimeout(() => {
+  changeWeight(false, "Rosemaria_C.");
+  console.log(studentWeight);
+  console.log(studentObj);
+}, 5000);
+
 // console.log(`Here ${Object.keys(studentObj)}`);
 
 // can have weight decided by an array with names of the people, each number for each person represents how many times that person is in that array
+
+// testArr = [2, 3, 1, 3, 1];
+
+// console.log(testArr.indexOf(1));
+// console.log(testArr);
+
+// testArr.splice(testArr.indexOf(1), 1);
+
+// console.log(testArr.indexOf(1));
+// console.log(testArr);
