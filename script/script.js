@@ -112,8 +112,6 @@ function sortData(dataParameter) {
   }
 
   appendStudentData();
-
-  // return studentObj;
 }
 
 fetchData("MOCK_DATA.json");
@@ -140,6 +138,25 @@ function changeWeight(addWeight, student) {
 
     weightGrab.appendChild(newChild);
   }
+}
+
+function generateStudentButtonClicked() {
+  const headerText = document.getElementById("selected_student");
+
+  let randomNameFlip = setInterval(() => {
+    let randomIndexElement = "";
+    headerText.removeChild(headerText.firstChild);
+
+    randomIndexElement += [Math.floor(Math.random() * studentWeight.length)];
+
+    headerText.appendChild(
+      document.createTextNode(studentWeight[randomIndexElement])
+    );
+  }, 100);
+
+  setTimeout(() => {
+    clearInterval(randomNameFlip);
+  }, 1000);
 }
 
 console.log(studentWeight);
