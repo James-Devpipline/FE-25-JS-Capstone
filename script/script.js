@@ -73,18 +73,21 @@ function sortData(dataParameter) {
     Object.keys(studentObj).forEach((user) => {
       const studentColoumnQuerySelect =
         document.querySelector(".student-column");
-      const studentInfo = document.createTextNode(
-        `${[user]} : ${studentObj[user]}`
-      );
+      const studentInfo = document.createTextNode(`${[user]} : `);
+      const stuWeight = document.createTextNode(`${studentObj[user]}`);
       const studentFirstDiv = document.createElement("div");
       const studentNameDiv = document.createElement("div");
+      const weightSpan = document.createElement("span");
       const studentParagraph = document.createElement("p");
+      weightSpan.setAttribute("id", `${[user]}Weight`);
       studentFirstDiv.setAttribute("id", `${[user]}`);
       studentNameDiv.setAttribute("class", "student_name");
 
       studentFirstDiv.appendChild(studentNameDiv);
       studentNameDiv.appendChild(studentParagraph);
       studentParagraph.appendChild(studentInfo);
+      weightSpan.appendChild(stuWeight);
+      studentParagraph.appendChild(weightSpan);
 
       const weightButtonDiv = document.createElement("div");
       weightButtonDiv.setAttribute("class", "weight_buttons");
@@ -92,11 +95,19 @@ function sortData(dataParameter) {
       const removeWeightButton = document.createElement("button");
       addWeightButton.innerText = "+";
       removeWeightButton.innerText = "-";
+
+      addWeightButton.addEventListener("click", () => {
+        changeWeight(true, [user]);
+      });
+      removeWeightButton.addEventListener("click", () => {
+        changeWeight(false, [user]);
+      });
+
       weightButtonDiv.appendChild(addWeightButton);
       weightButtonDiv.appendChild(removeWeightButton);
+      studentFirstDiv.appendChild(weightButtonDiv);
 
       studentColoumnQuerySelect.appendChild(studentFirstDiv);
-      studentColoumnQuerySelect.appendChild(weightButtonDiv);
     });
   }
 
@@ -111,40 +122,52 @@ function changeWeight(addWeight, student) {
   if (addWeight === true) {
     studentWeight.push(`${student}`);
     studentObj[student]++;
+    changeWeightUserFeedback(student);
   } else {
     if (studentObj[student] !== 0) {
       studentObj[student]--;
       studentWeight.splice(studentWeight.indexOf(student), 1);
+      changeWeightUserFeedback(student);
     }
+  }
+
+  function changeWeightUserFeedback(studentsName) {
+    const divGrab = document.getElementById(`${student}Weight`);
+    // weightGrab
+    const newChild = document.createTextNode(`${studentObj[studentsName]}`);
+
+    divGrab.removeChild(divGrab.firstChild);
+
+    divGrab.appendChild(newChild);
   }
 }
 
 console.log(studentWeight);
 console.log(studentObj);
 
-setTimeout(() => {
-  changeWeight(true, "Rosemaria C.");
-  console.log(studentWeight);
-  console.log(studentObj);
-}, 2000);
+// setTimeout(() => {
+//   changeWeight(true, "Rosemaria C.");
+//   console.log(studentWeight);
+//   console.log(studentObj);
+// }, 2000);
 
-setTimeout(() => {
-  changeWeight(false, "Rosemaria C.");
-  console.log(studentWeight);
-  console.log(studentObj);
-}, 3000);
+// setTimeout(() => {
+//   changeWeight(false, "Rosemaria C.");
+//   console.log(studentWeight);
+//   console.log(studentObj);
+// }, 3000);
 
-setTimeout(() => {
-  changeWeight(false, "Rosemaria C.");
-  console.log(studentWeight);
-  console.log(studentObj);
-}, 4000);
+// setTimeout(() => {
+//   changeWeight(false, "Rosemaria C.");
+//   console.log(studentWeight);
+//   console.log(studentObj);
+// }, 4000);
 
-setTimeout(() => {
-  changeWeight(false, "Rosemaria C.");
-  console.log(studentWeight);
-  console.log(studentObj);
-}, 5000);
+// setTimeout(() => {
+//   changeWeight(false, "Rosemaria C.");
+//   console.log(studentWeight);
+//   console.log(studentObj);
+// }, 5000);
 
 // console.log(`Here ${Object.keys(studentObj)}`);
 
