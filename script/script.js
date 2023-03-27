@@ -132,43 +132,15 @@ function changeWeight(addWeight, student) {
   }
 
   function changeWeightUserFeedback(studentsName) {
-    const divGrab = document.getElementById(`${student}Weight`);
-    // weightGrab
+    const weightGrab = document.getElementById(`${student}Weight`);
+
     const newChild = document.createTextNode(`${studentObj[studentsName]}`);
 
-    divGrab.removeChild(divGrab.firstChild);
+    weightGrab.removeChild(weightGrab.firstChild);
 
-    divGrab.appendChild(newChild);
+    weightGrab.appendChild(newChild);
   }
 }
 
 console.log(studentWeight);
 console.log(studentObj);
-
-// setTimeout(() => {
-//   changeWeight(true, "Rosemaria C.");
-//   console.log(studentWeight);
-//   console.log(studentObj);
-// }, 2000);
-
-// setTimeout(() => {
-//   changeWeight(false, "Rosemaria C.");
-//   console.log(studentWeight);
-//   console.log(studentObj);
-// }, 3000);
-
-// setTimeout(() => {
-//   changeWeight(false, "Rosemaria C.");
-//   console.log(studentWeight);
-//   console.log(studentObj);
-// }, 4000);
-
-// setTimeout(() => {
-//   changeWeight(false, "Rosemaria C.");
-//   console.log(studentWeight);
-//   console.log(studentObj);
-// }, 5000);
-
-// console.log(`Here ${Object.keys(studentObj)}`);
-
-// can have weight decided by an array with names of the people, each number for each person represents how many times that person is in that array
