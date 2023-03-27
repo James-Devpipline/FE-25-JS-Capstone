@@ -142,16 +142,23 @@ function changeWeight(addWeight, student) {
 
 function generateStudentButtonClicked() {
   const headerText = document.getElementById("selected_student");
+  let workingArr = [...studentWeight];
+  let lastStudent = "";
+  let selectedStudent = "";
 
-  let randomNameFlip = setInterval(() => {
+  function flipThroughNames() {
     let randomIndexElement = "";
     headerText.removeChild(headerText.firstChild);
 
     randomIndexElement += [Math.floor(Math.random() * studentWeight.length)];
 
-    headerText.appendChild(
-      document.createTextNode(studentWeight[randomIndexElement])
-    );
+    selectedStudent = workingArr[randomIndexElement];
+
+    headerText.appendChild(document.createTextNode(selectedStudent));
+  }
+
+  let randomNameFlip = setInterval(() => {
+    flipThroughNames();
   }, 100);
 
   setTimeout(() => {
