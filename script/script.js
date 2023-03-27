@@ -62,7 +62,7 @@ async function fetchData(location) {
 
 function sortData(dataParameter) {
   dataParameter.forEach((i) => {
-    let studentName = `${i.first_name}_${i.last_name[0].toUpperCase()}.`;
+    let studentName = `${i.first_name} ${i.last_name[0].toUpperCase()}.`;
 
     studentObj[`${studentName}`] = 1;
 
@@ -73,15 +73,30 @@ function sortData(dataParameter) {
     Object.keys(studentObj).forEach((user) => {
       const studentColoumnQuerySelect =
         document.querySelector(".student-column");
-      const studentDiv = document.createElement("div");
-      studentDiv.setAttribute("id", `${[user]}`);
       const studentInfo = document.createTextNode(
         `${[user]} : ${studentObj[user]}`
       );
+      const studentFirstDiv = document.createElement("div");
+      const studentNameDiv = document.createElement("div");
+      const studentParagraph = document.createElement("p");
+      studentFirstDiv.setAttribute("id", `${[user]}`);
+      studentNameDiv.setAttribute("class", "student_name");
 
-      studentDiv.appendChild(studentInfo);
+      studentFirstDiv.appendChild(studentNameDiv);
+      studentNameDiv.appendChild(studentParagraph);
+      studentParagraph.appendChild(studentInfo);
 
-      studentColoumnQuerySelect.appendChild(studentDiv);
+      const weightButtonDiv = document.createElement("div");
+      weightButtonDiv.setAttribute("class", "weight_buttons");
+      const addWeightButton = document.createElement("button");
+      const removeWeightButton = document.createElement("button");
+      addWeightButton.innerText = "+";
+      removeWeightButton.innerText = "-";
+      weightButtonDiv.appendChild(addWeightButton);
+      weightButtonDiv.appendChild(removeWeightButton);
+
+      studentColoumnQuerySelect.appendChild(studentFirstDiv);
+      studentColoumnQuerySelect.appendChild(weightButtonDiv);
     });
   }
 
@@ -108,25 +123,25 @@ console.log(studentWeight);
 console.log(studentObj);
 
 setTimeout(() => {
-  changeWeight(true, "Rosemaria_C.");
+  changeWeight(true, "Rosemaria C.");
   console.log(studentWeight);
   console.log(studentObj);
 }, 2000);
 
 setTimeout(() => {
-  changeWeight(false, "Rosemaria_C.");
+  changeWeight(false, "Rosemaria C.");
   console.log(studentWeight);
   console.log(studentObj);
 }, 3000);
 
 setTimeout(() => {
-  changeWeight(false, "Rosemaria_C.");
+  changeWeight(false, "Rosemaria C.");
   console.log(studentWeight);
   console.log(studentObj);
 }, 4000);
 
 setTimeout(() => {
-  changeWeight(false, "Rosemaria_C.");
+  changeWeight(false, "Rosemaria C.");
   console.log(studentWeight);
   console.log(studentObj);
 }, 5000);
