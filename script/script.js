@@ -52,11 +52,20 @@ Be on the lookout for further instructions regarding fetching your cohort peers
 
 let studentObj = {};
 let studentWeight = [];
+const loginInfo = {
+  email: "james@devpipeline.com",
+  password: "password123",
+};
+const stringifiedLoginInfo = JSON.stringify(loginInfo);
 
 async function fetchData(location) {
-  await fetch(location)
+  await fetch(location, {
+    method: "POST",
+    body: stringifiedLoginInfo,
+    headers: { "Content-Type": "application/json" },
+  })
     .then((results) => results.json())
-    .then((data) => sortData(data))
+    .then((data) => sortData(data.users))
     .catch((err) => console.error(err));
 }
 
@@ -114,7 +123,7 @@ function sortData(dataParameter) {
   appendStudentData();
 }
 
-fetchData("MOCK_DATA.json");
+fetchData("https://devpipeline-mock-api.onrender.com/api/auth/login");
 
 function changeWeight(addWeight, student) {
   if (addWeight === true) {
@@ -165,6 +174,3 @@ function generateStudentButtonClicked() {
     clearInterval(randomNameFlip);
   }, 1000);
 }
-
-console.log(studentWeight);
-console.log(studentObj);
