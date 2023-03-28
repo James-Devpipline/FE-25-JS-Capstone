@@ -123,8 +123,6 @@ function sortData(dataParameter) {
   appendStudentData();
 }
 
-fetchData("https://devpipeline-mock-api.onrender.com/api/auth/login");
-
 function changeWeight(addWeight, student) {
   if (addWeight === true) {
     studentWeight.push(`${student}`);
@@ -174,3 +172,5 @@ function generateStudentButtonClicked() {
     clearInterval(randomNameFlip);
   }, 1000);
 }
+
+fetchData("https://devpipeline-mock-api.onrender.com/api/auth/login");
