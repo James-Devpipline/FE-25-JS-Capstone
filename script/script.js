@@ -104,6 +104,8 @@ function sortData(dataParameter) {
       const removeWeightButton = document.createElement("button");
       addWeightButton.innerText = "+";
       removeWeightButton.innerText = "-";
+      addWeightButton.setAttribute("class", "addWeight");
+      removeWeightButton.setAttribute("class", "removeWeight");
 
       addWeightButton.addEventListener("click", () => {
         changeWeight(true, [user]);

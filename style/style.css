@@ -3,6 +3,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+  font-family: "Lato", sans-serif;
 }
 html .page-content,
 body .page-content {
@@ -12,20 +13,68 @@ body .page-content {
 }
 html .page-content .sidebar,
 body .page-content .sidebar {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #151843;
+  overflow-y: scroll;
 }
 html .page-content .sidebar .header,
 body .page-content .sidebar .header {
-  border-bottom-color: #e7edf5;
-  padding: 2px;
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  border-bottom-color: #bdc3cf;
+  padding: 50px 5px 5px 5px;
+  border-bottom: 1px solid;
+  border-color: white;
 }
 html .page-content .sidebar .header p,
 body .page-content .sidebar .header p {
-  color: #e7edf5;
+  color: #bdc3cf;
+}
+html .page-content .sidebar .student-column,
+body .page-content .sidebar .student-column {
+  height: 100%;
+}
+html .page-content .sidebar .student-column div .student_name,
+body .page-content .sidebar .student-column div .student_name {
+  display: flex;
+  justify-content: center;
+}
+html .page-content .sidebar .student-column div .student_name p,
+body .page-content .sidebar .student-column div .student_name p {
+  color: #bdc3cf;
+}
+html .page-content .sidebar .student-column div .weight_buttons,
+body .page-content .sidebar .student-column div .weight_buttons {
+  display: flex;
+  justify-content: center;
+}
+html .page-content .sidebar .student-column div .weight_buttons .addWeight,
+body .page-content .sidebar .student-column div .weight_buttons .addWeight {
+  cursor: pointer;
+  background-color: #7b1329;
+  color: white;
+  border: none;
+  margin-right: 5px;
+}
+html .page-content .sidebar .student-column div .weight_buttons .addWeight:hover,
+body .page-content .sidebar .student-column div .weight_buttons .addWeight:hover {
+  background-color: #e20e10;
+}
+html .page-content .sidebar .student-column div .weight_buttons .removeWeight,
+body .page-content .sidebar .student-column div .weight_buttons .removeWeight {
+  cursor: pointer;
+  background-color: #15643c;
+  color: black;
+  border: none;
+}
+html .page-content .sidebar .student-column div .weight_buttons .removeWeight:hover,
+body .page-content .sidebar .student-column div .weight_buttons .removeWeight:hover {
+  background-color: #18db3a;
 }
 html .page-content .main,
 body .page-content .main {
@@ -34,4 +83,22 @@ body .page-content .main {
   justify-content: center;
   align-items: center;
   background-color: #d6d3d5;
+}
+html .page-content .main .header p,
+body .page-content .main .header p {
+  font-weight: bold;
+  font-size: 5em;
+}
+html .page-content .main .button button,
+body .page-content .main .button button {
+  background-color: #171645;
+  color: #bdc3cf;
+  padding: 20px 150px;
+  border: none;
+  border-radius: 3px;
+}
+html .page-content .main .button button:hover,
+body .page-content .main .button button:hover {
+  color: white;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
