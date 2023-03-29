@@ -50,8 +50,8 @@ Be on the lookout for further instructions regarding fetching your cohort peers
 -- HAVE FUN --
 */
 
-let studentObj = {};
-let studentWeight = [];
+const studentObj = {};
+const studentWeight = [];
 let selectedStudent = "";
 let last_student = "";
 
