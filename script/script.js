@@ -176,13 +176,13 @@ function generateStudentButtonClicked() {
 
   setTimeout(() => {
     clearInterval(randomNameFlip);
-    if (selectedStudent === last_student) {
-      while (selectedStudent === last_student) {
-        flipThroughNames();
-      }
-    } else {
-      last_student = [...selectedStudent];
-    }
+    // if (selectedStudent === last_student) {
+    //   while (selectedStudent === last_student) {
+    //     flipThroughNames();
+    //   }
+    // } else {
+    //   last_student = [...selectedStudent];
+    // }
   }, 1000);
 }
 
