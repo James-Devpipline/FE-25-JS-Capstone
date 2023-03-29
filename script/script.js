@@ -52,6 +52,9 @@ Be on the lookout for further instructions regarding fetching your cohort peers
 
 let studentObj = {};
 let studentWeight = [];
+let selectedStudent = "";
+let last_student = "";
+
 const loginInfo = {
   email: "james@devpipeline.com",
   password: "password123",
@@ -108,10 +111,10 @@ function sortData(dataParameter) {
       removeWeightButton.setAttribute("class", "removeWeight");
 
       addWeightButton.addEventListener("click", () => {
-        changeWeight(true, [user]);
+        changeWeight(true, user);
       });
       removeWeightButton.addEventListener("click", () => {
-        changeWeight(false, [user]);
+        changeWeight(false, user);
       });
 
       weightButtonDiv.appendChild(addWeightButton);
@@ -133,7 +136,10 @@ function changeWeight(addWeight, student) {
   } else {
     if (studentObj[student] !== 0) {
       studentObj[student]--;
-      studentWeight.splice(studentWeight.indexOf(student), 1);
+
+      const testThis = studentWeight.indexOf(student);
+
+      studentWeight.splice(testThis, 1);
       changeWeightUserFeedback(student);
     }
   }
@@ -152,8 +158,6 @@ function changeWeight(addWeight, student) {
 function generateStudentButtonClicked() {
   const headerText = document.getElementById("selected_student");
   let workingArr = [...studentWeight];
-  let lastStudent = "";
-  let selectedStudent = "";
 
   function flipThroughNames() {
     let randomIndexElement = "";
@@ -172,6 +176,13 @@ function generateStudentButtonClicked() {
 
   setTimeout(() => {
     clearInterval(randomNameFlip);
+    if (selectedStudent === last_student) {
+      while (selectedStudent === last_student) {
+        flipThroughNames();
+      }
+    } else {
+      last_student = [...selectedStudent];
+    }
   }, 1000);
 }
 
